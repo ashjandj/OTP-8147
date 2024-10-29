@@ -1,0 +1,74 @@
+/*
+	Sass Application Entry Point
+	Link all your sass dependencies in the right order
+
+	Example:
+	@import "other-sass-file.scss";
+	@import "../../<other module>/Sass/other-sass-file.scss";
+*/ 
+
+.wishlist-info-card {
+    @extend .info-card;
+
+}
+
+.wishlist-info-card-content {
+    @extend .info-card-content;
+    color: $sc-color-secondary;
+    font-weight: bold;
+}
+// SCSS Variables
+$color-gray: gray;
+$color-red: rgb(87, 2, 2);
+$font-size-large: 2rem;
+$transition-ease: 0.3s ease;
+$border-width: 1px;
+
+// Basic Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Button Styles
+.fav-button {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-large;
+    color: $color-gray;
+    transition: color $transition-ease;
+
+    .heart-icon {
+        color: $color-gray;
+        transition: color $transition-ease, transform 0.2s ease;
+        font-size: $font-size-large;
+    }
+
+    &.active {
+        .heart-icon {
+            color: $color-red; // Change heart to red when active
+        }
+    }
+
+    &:hover {
+        .heart-icon {
+            transform: scale(1.2); // Heart beats on hover
+            color: transparent; // Hide heart color
+            -webkit-text-stroke: $border-width $color-red; // Red outline on hover
+        }
+    }
+
+    &.active:hover {
+        .heart-icon {
+            transform: scale(1.2); // Keep heart beat on hover when active
+            color: $color-red; // Keep heart color red
+            -webkit-text-stroke: 0; // No outline when active
+        }
+    }
+}

@@ -1,0 +1,9 @@
+define('header_simplified.tpl', ['Handlebars','Handlebars.CompilerNameLookup'], function (Handlebars, compilerNameLookup){ var t = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
+    var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3=container.escapeExpression;
+
+  return "<a class=\"skip-to-main-content\" data-action=\"skip-to-main-content\" href=\""
+    + alias3(((helper = (helper = compilerNameLookup(helpers,"hrefSkipToContext") || (depth0 != null ? compilerNameLookup(depth0,"hrefSkipToContext") : depth0)) != null ? helper : alias2),(typeof helper === "function" ? helper.call(alias1,{"name":"hrefSkipToContext","hash":{},"data":data,"loc":{"start":{"line":1,"column":73},"end":{"line":1,"column":94}}}) : helper)))
+    + "\">"
+    + alias3((compilerNameLookup(helpers,"translate")||(depth0 && compilerNameLookup(depth0,"translate"))||alias2).call(alias1,"Skip to main content","Jumps to the main content section",{"name":"translate","hash":{},"data":data,"loc":{"start":{"line":1,"column":96},"end":{"line":1,"column":168}}}))
+    + "</a>\n<nav class=\"header-simplified-header\">\n	<div class=\"header-simplified-header-logo\" data-view=\"Header.Logo\"></div>\n	<div id=\"banner-header-top\" class=\"content-banner banner-header-top\" data-cms-area=\"simplified_header_banner\" data-cms-area-filters=\"global\"></div>\n</nav>\n\n\n\n\n";
+},"useData":true}; var main = t.main; t.main = function(){ arguments[1] = arguments[1] || {}; var ctx = arguments[1]; ctx._extension_path = 'http://localhost:7777/tmp/extensions/SuiteCommerce/Suite_Commerce_Base_Theme/24.1.30/'; ctx._theme_path = 'http://localhost:7777/tmp/extensions/SuiteCommerce/Suite_Commerce_Base_Theme/24.1.30/'; return main.apply(this, arguments); }; var template = Handlebars.template(t); template.Name = 'header_simplified'; return template;});

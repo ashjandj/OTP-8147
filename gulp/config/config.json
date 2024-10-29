@@ -1,62 +1,95 @@
 {
     "dbConfig": {
-        "keepalive": false
-    ,   "port": 7777
-    ,   "https": false
-    ,   "key": "KEYPEM"
-    ,   "cert": "CERTPEM"
-    }
-
-,   "scaffolding": {
-        "keepalive": false
-    ,   "port": 7777
-    }
-
-,   "fetchConfig": {}
-
-,   "extensionMode": true
-
-,	"preserveManifest": false
-
-,   "folders": {
+        "keepalive": false,
+        "port": 7777,
+        "https": false,
+        "key": "KEYPEM",
+        "cert": "CERTPEM"
+    },
+    "scaffolding": {
+        "keepalive": false,
+        "port": 7777
+    },
+    "fetchConfig": {},
+    "extensionMode": true,
+    "preserveManifest": false,
+    "folders": {
         "source": {
-            "source_path": "Workspace"
-        ,   "extras_path": "Workspace/Extras"
+            "source_path": "Workspace",
+            "extras_path": "Workspace/Extras"
+        },
+        "application_manifest": "Workspace/Extras",
+        "theme": "Extras",
+        "overrides": "Overrides",
+        "output": "LocalDistribution/tmp",
+        "local": "LocalDistribution",
+        "deploy": "DeployDistribution",
+        "extensions_dest_name": "Deploy_Extensions",
+        "extmech_parent": "-15",
+        "extensions_path": [
+            "Workspace/wishlist"
+        ],
+        "theme_path": "Workspace/Extras/Suite_Commerce_Base_Theme",
+        "overrides_path": "Workspace/Extras/Suite_Commerce_Base_Theme/Overrides"
+    },
+    "application": {
+        "application_manifest": {
+            "type": "SCA",
+            "version": "24.1.30",
+            "application": [
+                "shopping",
+                "myaccount",
+                "checkout"
+            ],
+            "extensible_resources": [
+                "skins",
+                "javascript",
+                "ssp-libraries",
+                "sass",
+                "templates",
+                "services",
+                "configuration",
+                "assets",
+                "suitescript2",
+                "translations"
+            ]
         }
-
-    ,   "application_manifest": "Workspace/Extras"
-    ,   "theme": "Extras"
-    ,   "overrides": "Overrides"
-    ,   "output": "LocalDistribution/tmp"
-    ,   "local": "LocalDistribution"
-    ,   "deploy": "DeployDistribution"
-    ,   "extensions_dest_name": "Deploy_Extensions"
-    ,   "extmech_parent": "-15"
-    }
-
-,   "application": {}
-
-,   "services": {
+    },
+    "services": {
         "EXTENSION_SERVICE": {
-            "script": "customscript_ns_sc_ext_mech_restlets"
-        ,   "deploy": "customdeploy_ns_sc_ext_mech_restlets"
-        }
-    ,   "WEBSITE_SERVICE": {
-            "script": "customscript_ns_sc_ext_mech_restlets"
-        ,   "deploy": "customdeploy_ns_sc_ext_mech_restlets"
-        }
-    ,   "FILE_SERVICE": {
-            "script": "customscript_ns_sc_ext_mech_restlets"
-        ,   "deploy": "customdeploy_ns_sc_ext_mech_restlets"
+            "script": "customscript_ns_sc_ext_mech_restlets",
+            "deploy": "customdeploy_ns_sc_ext_mech_restlets"
+        },
+        "WEBSITE_SERVICE": {
+            "script": "customscript_ns_sc_ext_mech_restlets",
+            "deploy": "customdeploy_ns_sc_ext_mech_restlets"
+        },
+        "FILE_SERVICE": {
+            "script": "customscript_ns_sc_ext_mech_restlets",
+            "deploy": "customdeploy_ns_sc_ext_mech_restlets"
         },
         "DEPLOY_SERVICE": {
             "script": "customscript_ext_mech_deployer_rest",
             "deploy": "customdeploy_ext_mech_deployer_rest"
         }
-    }
-
-,   "deploy_config": {
+    },
+    "deploy_config": {
         "update": true,
         "chunk_size": 80
-    }
+    },
+    "product": "gulp",
+    "credentials": {
+        "user_agent": "sc-extension-devtools/2024.1.2",
+        "authID": "ash training",
+        "hostname": "TD2947894.restlets.api.netsuite.com",
+        "website": 5,
+        "domain": "www.petal123.publicvm.com",
+        "webapp_id": "19548",
+        "ssp_folder": "19548",
+        "is_scis": false,
+        "key": "28f3f42fc19d6ab3fceaee84a2d6996da650f15fc13a24b9076975e4e9aa4fb1",
+        "secret": "16ce6a30ada0dcd578e8e2d2878997fe9626b43e3cb8bf3f2702fe94558f3e7f",
+        "account": "TD2947894"
+    },
+    "nsdeployPath": ".nsdeploy"
 }

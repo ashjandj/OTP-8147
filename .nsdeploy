@@ -1,0 +1,12 @@
+{
+    "credentials": {
+        "user_agent": "sc-extension-devtools/2024.1.2",
+        "authID": "ash training",
+        "hostname": "TD2947894.restlets.api.netsuite.com",
+        "website": 5,
+        "domain": "www.petal123.publicvm.com",
+        "webapp_id": "19548",
+        "ssp_folder": "19548",
+        "is_scis": false
+    }
+}
