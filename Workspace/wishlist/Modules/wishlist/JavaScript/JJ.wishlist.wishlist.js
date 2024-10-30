@@ -16,30 +16,15 @@ define(
 
         return {
             mountToApp: function mountToApp(container) {
-                const facetsModel = new FacetsModel({
-					searchApiMasterOptions: {  }
-				});
-                let itemInternalIdArray = [];
-				facetsModel.fetch({
-					success: function(model, response) {
-                        let itemId=model.get('items');
-                        for(let i=0;i<itemId.models.length;i++)
-                        {
-                        itemInternalIdArray.push(itemId.models[i].attributes.internalid);}
-					},
-					error: function(model, response) {
-						console.error('Error fetching items:', response);
-					}
-				});
-               
-
+                
                 if (FacetsBrowseView) {
                     FacetsBrowseView.addChildViews({
                         'ItemDetails.Options': {
                             'Wishlist.View': {
                                 childViewIndex: 10, 
                                 childViewConstructor: function () {
-                                    return new wishlistView({ container: container,itemInternalIdArray:itemInternalIdArray });
+                                  
+                                    return new wishlistView({ container: container,model:this.model });
                                 }
                             }
                         }

@@ -1,13 +1,13 @@
 define('jj_wishlist_wishlist.tpl', ['Handlebars','Handlebars.CompilerNameLookup'], function (Handlebars, compilerNameLookup){ var t = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3=container.escapeExpression;
 
-  return "<section class=\"wishlist-info-card\">\n    <span class=\"wishlist-info-card-content\">\n   <button class=\"fav-button\">  \n    <span class=\"heart-icon\">&#10084;</span>\n</button>  \n\n\n \n    </span>\n</section>\n\n\n\n<!--\n  Available helpers:\n  "
+  return "<section class=\"wishlist-info-card\">\r\n    <span class=\"wishlist-info-card-content\">\r\n   <button class=\"fav-button\">  \r\n    <span class=\"heart-icon\">&#10084;</span>\r\n</button>  \r\n\r\n\r\n \r\n    </span>\r\n</section>\r\n\r\n\r\n\r\n<!--\r\n  Available helpers:\r\n  "
     + alias3((compilerNameLookup(helpers,"getExtensionAssetsPath")||(depth0 && compilerNameLookup(depth0,"getExtensionAssetsPath"))||alias2).call(alias1,"img/image.jpg",{"name":"getExtensionAssetsPath","hash":{},"data":data,"loc":{"start":{"line":16,"column":2},"end":{"line":16,"column":45}}}))
-    + " - reference assets in your extension\n  \n  "
+    + " - reference assets in your extension\r\n  \r\n  "
     + alias3((compilerNameLookup(helpers,"getExtensionAssetsPathWithDefault")||(depth0 && compilerNameLookup(depth0,"getExtensionAssetsPathWithDefault"))||alias2).call(alias1,(depth0 != null ? compilerNameLookup(depth0,"context_var") : depth0),"img/image.jpg",{"name":"getExtensionAssetsPathWithDefault","hash":{},"data":data,"loc":{"start":{"line":18,"column":2},"end":{"line":18,"column":68}}}))
-    + " - use context_var value i.e. configuration variable. If it does not exist, fallback to an asset from the extension assets folder\n  \n  "
+    + " - use context_var value i.e. configuration variable. If it does not exist, fallback to an asset from the extension assets folder\r\n  \r\n  "
     + alias3((compilerNameLookup(helpers,"getThemeAssetsPath")||(depth0 && compilerNameLookup(depth0,"getThemeAssetsPath"))||alias2).call(alias1,(depth0 != null ? compilerNameLookup(depth0,"context_var") : depth0),"img/image.jpg",{"name":"getThemeAssetsPath","hash":{},"data":data,"loc":{"start":{"line":20,"column":2},"end":{"line":20,"column":53}}}))
-    + " - reference assets in the active theme\n  \n  "
+    + " - reference assets in the active theme\r\n  \r\n  "
     + alias3((compilerNameLookup(helpers,"getThemeAssetsPathWithDefault")||(depth0 && compilerNameLookup(depth0,"getThemeAssetsPathWithDefault"))||alias2).call(alias1,(depth0 != null ? compilerNameLookup(depth0,"context_var") : depth0),"img/theme-image.jpg",{"name":"getThemeAssetsPathWithDefault","hash":{},"data":data,"loc":{"start":{"line":22,"column":2},"end":{"line":22,"column":70}}}))
-    + " - use context_var value i.e. configuration variable. If it does not exist, fallback to an asset from the theme assets folder\n-->";
+    + " - use context_var value i.e. configuration variable. If it does not exist, fallback to an asset from the theme assets folder\r\n-->";
 },"useData":true}; var main = t.main; t.main = function(){ arguments[1] = arguments[1] || {}; var ctx = arguments[1]; ctx._extension_path = 'http://localhost:7777/tmp/extensions/JJ/wishlist/1.0.0/'; ctx._theme_path = 'http://localhost:7777/tmp/extensions/SuiteCommerce/Suite_Commerce_Base_Theme/24.1.30/'; return main.apply(this, arguments); }; var template = Handlebars.template(t); template.Name = 'jj_wishlist_wishlist'; return template;});
