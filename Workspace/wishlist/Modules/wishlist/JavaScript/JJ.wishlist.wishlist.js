@@ -2,28 +2,50 @@ define(
     'JJ.wishlist.wishlist',
     [
         'JJ.wishlist.wishlist.View',
-        'Facets.ItemCell.View'
+        'Facets.ItemCell.View',
+        'Facets.Model',
+        
     ],
     function (
         wishlistView,
-        FacetsBrowseView
+        FacetsBrowseView,
+        FacetsModel
+        
     ) {
         'use strict';
 
         return {
             mountToApp: function mountToApp(container) {
-                //Inject the child view to the new view. 
+                const facetsModel = new FacetsModel({
+					searchApiMasterOptions: {  }
+				});
+                let itemInternalIdArray = [];
+				facetsModel.fetch({
+					success: function(model, response) {
+                        let itemId=model.get('items');
+                        for(let i=0;i<itemId.models.length;i++)
+                        {
+                        itemInternalIdArray.push(itemId.models[i].attributes.internalid);}
+					},
+					error: function(model, response) {
+						console.error('Error fetching items:', response);
+					}
+				});
+               
+
                 if (FacetsBrowseView) {
                     FacetsBrowseView.addChildViews({
-                        'Cart.QuickAddToCart': {
+                        'ItemDetails.Options': {
                             'Wishlist.View': {
                                 childViewIndex: 10, 
                                 childViewConstructor: function () {
-                                    return new wishlistView({ container: container });
+                                    return new wishlistView({ container: container,itemInternalIdArray:itemInternalIdArray });
                                 }
                             }
                         }
+                        
                     });
+                    
                     // _.extend(FacetsBrowseView.prototype, {
 
                     //     initialize: _.wrap(FacetsBrowseView.prototype.initialize, function (fn) {
