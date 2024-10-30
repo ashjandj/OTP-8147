@@ -10,9 +10,18 @@ define('JJ.wishlist.wishlist.View',
     ) {
     'use strict';
 
+    /**
+     * Wishlist View.
+     * @module JJ.wishlist.wishlist.View
+     */
     return Backbone.View.extend({
         template: jj_wishlist_wishlist_tpl,
 
+        /**
+         * Initializes the view.
+         * @param {Object} options - Options for the view.
+         * @param {Object} options.model - The model containing item details.
+         */
         initialize: function (options) {
             // Bind after view render for any DOM manipulations
             this.on('afterViewRender', this.handleAfterRender);
@@ -22,13 +31,11 @@ define('JJ.wishlist.wishlist.View',
             this.wishlistItems = JSON.parse(this.getCookie("wishlistItem12") || "[]");
         },
 
+        /**
+         * Handles actions after the view has rendered.
+         */
         handleAfterRender: function () {
             const favButton = this.$el.find('.fav-button');
-
-            // Log button, item ID, and wishlist items for troubleshooting
-            console.log('Fav Button:', favButton);
-            console.log('Current Item ID:', this.itemId);
-            console.log('Wishlist Items:', this.wishlistItems);
 
             // Check if item is in the wishlist, and if so, set 'active' class
             if (this.wishlistItems.includes(this.itemId)) {
@@ -39,6 +46,9 @@ define('JJ.wishlist.wishlist.View',
             this.bindFavoriteButton();
         },
 
+        /**
+         * Binds the favorite button click event.
+         */
         bindFavoriteButton: function () {
             const favButton = this.$el.find('.fav-button');
             favButton.on('click', (e) => {
@@ -49,6 +59,11 @@ define('JJ.wishlist.wishlist.View',
             });
         },
 
+        /**
+         * Retrieves item details from the button.
+         * @param {jQuery} button - The button element.
+         * @returns {Object} - The item details.
+         */
         getItemDetails: function (button) {
             const itemCell = button.closest('.facets-item-cell-grid');
             return {
@@ -59,16 +74,26 @@ define('JJ.wishlist.wishlist.View',
             };
         },
 
+        /**
+         * Sends item details to be added or removed from the wishlist.
+         * @param {Object} itemDetails - The details of the item.
+         */
         sendItemDetails: function (itemDetails) {
-            if( this.wishlistItems.includes(itemDetails.itemId))
-            {
-                this.setCookie('wishlistItem12', itemDetails.itemId, 7,false);
-            }else{
-                this.setCookie('wishlistItem12', itemDetails.itemId, 7,true);
+            let wishlistItems = JSON.parse(this.getCookie("wishlistItem12") || "[]");
+            if (wishlistItems.includes(itemDetails.itemId)) {
+                this.setCookie('wishlistItem12', itemDetails.itemId, 7, false);
+            } else {
+                this.setCookie('wishlistItem12', itemDetails.itemId, 7, true);
             }
-            
         },
 
+        /**
+         * Sets a cookie with the given parameters.
+         * @param {string} name - The name of the cookie.
+         * @param {string} value - The value to set.
+         * @param {number} days - Number of days until the cookie expires.
+         * @param {boolean} status - Indicates if the item should be added or removed.
+         */
         setCookie: function (name, value, days, status) {
             let expires = "";
             if (days) {
@@ -89,28 +114,30 @@ define('JJ.wishlist.wishlist.View',
                 }
             }
 
-            if(status)
-            {
+            if (status) {
                 if (Array.isArray(array)) {
                     array.push(value);
                 } else {
                     console.error("The retrieved cookie value is not an array, resetting to empty array.");
                     array = [value];
                 }
-            }else
-            {
+            } else {
                 if (Array.isArray(array)) {
                     array = array.filter(item => item !== value); // Removes all instances of `value`
                 } else {
                     console.error("The retrieved cookie value is not an array, resetting to empty array.");
                     array = [];
                 }
-                
             }
 
             document.cookie = `${name}=${JSON.stringify(array)}${expires}; path=/; SameSite=Strict`;
         },
 
+        /**
+         * Retrieves the value of a cookie by name.
+         * @param {string} name - The name of the cookie.
+         * @returns {string|null} - The cookie value or null if not found.
+         */
         getCookie: function (name) {
             const nameEQ = `${name}=`;
             const ca = document.cookie.split(';');
@@ -129,6 +156,10 @@ define('JJ.wishlist.wishlist.View',
 
         childViews: {},
 
+        /**
+         * Returns the context for rendering the template.
+         * @returns {Object} - The context object.
+         */
         getContext: function () {
             return {
                 itemData: this.itemData || []
