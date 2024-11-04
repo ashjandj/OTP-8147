@@ -1,0 +1,90 @@
+{
+    "name": "wishlist",
+    "fantasyName": "wishlist",
+    "vendor": "JJ",
+    "type": "extension",
+    "target": "SCA,SCS",
+    "target_version": {
+        "SCA": ">=24.1.2",
+        "SCS": ">=24.1.2"
+    },
+    "version": "1.0.0",
+    "description": "Enhance your SuiteCommerce Advanced (SCA) website with a user-friendly &#34;Wishlist&#34; feature on the Product Listing Page (PLP). This seamless addition allows customers to save products directly from the PLP, streamlining their shopping experience without the need to navigate to individual Product Detail Pages (PDPs).",
+    "assets": {
+        "img": {
+            "files": []
+        },
+        "fonts": {
+            "files": []
+        },
+        "services": {
+            "files": [
+                "services/wishlist.Service.ss"
+            ]
+        }
+    },
+    "configuration": {
+        "files": [
+            "Modules/wishlist/Configuration/wishlist.json"
+        ]
+    },
+    "templates": {
+        "application": {
+            "shopping": {
+                "files": [
+                    "Modules/wishlist/Templates/jj_wishlist_wishlist.tpl"
+                ]
+            },
+            "myaccount": {
+                "files": [
+                    "Modules/wishlist/Templates/jj_wishlist_wishlist.tpl"
+                ]
+            }
+        }
+    },
+    "sass": {
+        "entry_points": {
+            "shopping": "Modules/wishlist/Sass/_wishlist-wishlist.scss",
+            "myaccount": "Modules/wishlist/Sass/_wishlist-wishlist.scss"
+        },
+        "files": [
+            "Modules/wishlist/Sass/_wishlist-wishlist.scss"
+        ]
+    },
+    "javascript": {
+        "entry_points": {
+            "shopping": "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.js",
+            "myaccount": "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.js"
+        },
+        "application": {
+            "shopping": {
+                "files": [
+                    "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.js",
+                    "Modules/wishlist/JavaScript/wishlist.View.js",
+                    "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.Model.js",
+                    "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.SS2Model.js"
+                ]
+            },
+            "myaccount": {
+                "files": [
+                    "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.js",
+                    "Modules/wishlist/JavaScript/wishlist.View.js",
+                    "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.Model.js",
+                    "Modules/wishlist/JavaScript/JJ.wishlist.wishlist.SS2Model.js"
+                ]
+            }
+        }
+    },
+    "ssp-libraries": {
+        "entry_point": "Modules/wishlist/SuiteScript/JJ.wishlist.wishlist.js",
+        "files": [
+            "Modules/wishlist/SuiteScript/JJ.wishlist.wishlist.js",
+            "Modules/wishlist/SuiteScript/wishlist.ServiceController.js"
+        ]
+    },
+    "suitescript2": {
+        "files": [
+            "Modules/wishlist/SuiteScript2/wishlist.Service.ss"
+        ]
+    }
+}

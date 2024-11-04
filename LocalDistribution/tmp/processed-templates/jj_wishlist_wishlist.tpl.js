@@ -1,7 +1,7 @@
 define('jj_wishlist_wishlist.tpl', ['Handlebars','Handlebars.CompilerNameLookup'], function (Handlebars, compilerNameLookup){ var t = {"compiler":[8,">= 4.3.0"],"main":function(container,depth0,helpers,partials,data) {
     var alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=container.hooks.helperMissing, alias3=container.escapeExpression;
 
-  return "<section class=\"wishlist-info-card\">\r\n    <span class=\"wishlist-info-card-content\">\r\n   <button class=\"fav-button\">  \r\n    <span class=\"heart-icon\">&#10084;</span>\r\n</button>  \r\n\r\n\r\n \r\n    </span>\r\n</section>\r\n\r\n\r\n\r\n<!--\r\n  Available helpers:\r\n  "
+  return "<section class=\"wishlist-info-card\">\r\n    <span class=\"wishlist-info-card-content\">\r\n   <button class=\"fav-button\" data-action=\"show-productlist-control\">  \r\n    <span class=\"heart-icon\">&#10084;</span>\r\n</button>  \r\n\r\n\r\n \r\n    </span>\r\n</section>\r\n\r\n\r\n\r\n<!--\r\n  Available helpers:\r\n  "
     + alias3((compilerNameLookup(helpers,"getExtensionAssetsPath")||(depth0 && compilerNameLookup(depth0,"getExtensionAssetsPath"))||alias2).call(alias1,"img/image.jpg",{"name":"getExtensionAssetsPath","hash":{},"data":data,"loc":{"start":{"line":16,"column":2},"end":{"line":16,"column":45}}}))
     + " - reference assets in your extension\r\n  \r\n  "
     + alias3((compilerNameLookup(helpers,"getExtensionAssetsPathWithDefault")||(depth0 && compilerNameLookup(depth0,"getExtensionAssetsPathWithDefault"))||alias2).call(alias1,(depth0 != null ? compilerNameLookup(depth0,"context_var") : depth0),"img/image.jpg",{"name":"getExtensionAssetsPathWithDefault","hash":{},"data":data,"loc":{"start":{"line":18,"column":2},"end":{"line":18,"column":68}}}))

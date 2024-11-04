@@ -1,6 +1,6 @@
 <section class="wishlist-info-card">
     <span class="wishlist-info-card-content">
-   <button class="fav-button" data-action="show-productlist-control">  
+   <button class="fav-button">  
     <span class="heart-icon">&#10084;</span>
 </button>  
 
